@@ -370,7 +370,7 @@ class CustomValidationCz(BaseCommitizen):
             "commit validation: failed!\n"
             "please enter a commit message in the commitizen format.\n"
             f"{displayed_msgs_content}\n"
-            f"pattern: {self.schema_pattern}"
+            f"pattern: {self.schema_pattern()}"
         )
 ```
 
