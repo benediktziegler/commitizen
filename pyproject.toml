@@ -174,7 +174,7 @@ testpaths = ["tests/"]
 
 [tool.tox]
 requires = ["tox>=4.22"]
-env_list = ["3.9", "3.10", "3.11", "3.12", "3.13"]
+env_list = ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
 
 [tool.tox.env_run_base]
 description = "Run tests suite against Python {base_python}"
@@ -207,11 +207,13 @@ select = [
     "RUF022",
     # unused-noqa
     "RUF100",
+    # Checks for uses of the assert keyword.
+    "S101",
 ]
 ignore = ["E501", "D1", "D415"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["ANN"]
+"tests/*" = ["ANN", "S101"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["commitizen", "tests"]
