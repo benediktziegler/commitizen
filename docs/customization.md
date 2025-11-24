@@ -320,7 +320,7 @@ methods from `BaseCommitizen`. This allows for a more detailed feedback to the u
 ```python
 import re
 
-from commitizen.cz.base import BaseCommitizen
+from commitizen.cz.base import BaseCommitizen, ValidationResult
 from commitizen import git
 
 
@@ -333,7 +333,7 @@ class CustomValidationCz(BaseCommitizen):
         allow_abort: bool,
         allowed_prefixes: list[str],
         max_msg_length: int,
-    ) -> tuple[bool, list]:
+    ) -> ValidationResult:
         """Validate commit message against the pattern."""
         if not commit_msg:
             return allow_abort, [] if allow_abort else [f"commit message is empty"]
